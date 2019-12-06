@@ -110,6 +110,7 @@ class EllipticalDialogFragment : AppCompatDialogFragment() {
                         view!!.height.toFloat() + root_container.cornerRadius
                     )
                 )
+                rectangleBoundsAnim.duration = RECT_ANIMATION_DURATION
                 rectangleBoundsAnim.addUpdateListener {
                     root_container.invalidate()
                 }
@@ -145,6 +146,7 @@ class EllipticalDialogFragment : AppCompatDialogFragment() {
                 ),
                 endRectF
             )
+            rectangleBoundsAnim.duration = RECT_ANIMATION_DURATION
             rectangleBoundsAnim.addUpdateListener {
                 root_container.invalidate()
             }
@@ -175,7 +177,7 @@ class EllipticalDialogFragment : AppCompatDialogFragment() {
 
     companion object {
         const val ARG_INITIAL_RECT = "ARG_INITIAL_RECT"
-        const val RECT_ANIMATION_DURATION = 600L
+        const val RECT_ANIMATION_DURATION = 500L
         const val TEXT_ANIMATION_DURATION = 300L
 
         fun newInstance(rect: RectF): EllipticalDialogFragment {

@@ -10,7 +10,7 @@
         android:id="@+id/btn_fragment_circular"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Circular"
+        android:text="Circular\nfragment"
         android:textColor="@android:color/white"
         android:background="@drawable/bg_oval"
         app:layout_constraintBottom_toTopOf="@id/btn_fragment_elliptical"
@@ -23,13 +23,26 @@
         android:id="@+id/btn_fragment_elliptical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="Elliptical"
+        android:layout_marginTop="16dp"
+        android:text="Elliptical\nfragment"
+        android:textColor="@android:color/white"
+        android:background="@drawable/bg_oval"
+        app:layout_constraintBottom_toTopOf="@id/btn_activity_elliptical"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/btn_fragment_circular" />
+
+    <Button
+        android:id="@+id/btn_activity_elliptical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="Elliptical\nactivity"
         android:textColor="@android:color/white"
         android:background="@drawable/bg_oval"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_fragment_circular" />
+        app:layout_constraintTop_toBottomOf="@id/btn_fragment_elliptical" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,5 +1,6 @@
 package com.example.myapplication
 
+import android.content.Intent
 import android.graphics.Point
 import android.graphics.Rect
 import android.os.Bundle
@@ -19,6 +20,9 @@ class MainActivity : AppCompatActivity() {
         btn_fragment_elliptical.setOnClickListener {
             showEllipticalFragment()
         }
+        btn_activity_elliptical.setOnClickListener {
+            showEllipticalActivity()
+        }
     }
 
     fun showCircularFragment() {
@@ -36,9 +40,20 @@ class MainActivity : AppCompatActivity() {
     fun showEllipticalFragment() {
         val rect = Rect()
         btn_fragment_elliptical.getGlobalVisibleRect(rect)
-
+        rect.offset(0, -statusBarHeight())
         val fragment = EllipticalDialogFragment.newInstance(rect.toRectF())
         fragment.show(supportFragmentManager, "TAG")
+    }
+
+    fun showEllipticalActivity() {
+        val rect = Rect()
+        btn_activity_elliptical.getGlobalVisibleRect(rect)
+        rect.offset(0, -statusBarHeight())
+
+        val intent = Intent(this, EllipticalActivity::class.java)
+        intent.putExtra(EllipticalActivity.ARG_INITIAL_RECT, rect.toRectF())
+
+        startActivity(intent)
     }
 
     fun statusBarHeight(): Int {

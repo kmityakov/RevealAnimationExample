@@ -10,6 +10,12 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <style name="AppTheme.Transparent" parent="AppTheme">
+        <item name="android:windowIsTranslucent">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
     <style name="Dialog.NoTitle" parent="AppTheme">
         <item name="android:padding">0dp</item>
         <item name="android:windowBackground">@android:color/transparent</item>
