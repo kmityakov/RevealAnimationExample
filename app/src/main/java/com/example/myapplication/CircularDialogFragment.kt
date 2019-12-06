@@ -93,7 +93,7 @@ class CircularDialogFragment : AppCompatDialogFragment() {
                 v.removeOnLayoutChangeListener(this)
 
                 val startRadius = arguments?.getFloat(ARG_INITIAL_RADIUS) ?: 0.0f
-                val endRadius = Math.hypot(right.toDouble(), bottom.toDouble()) / 2
+                val endRadius = Math.hypot(right.toDouble(), bottom.toDouble()) / 1.5f
 
                 val circularAnimation = ViewAnimationUtils.createCircularReveal(
                     v,
@@ -122,7 +122,7 @@ class CircularDialogFragment : AppCompatDialogFragment() {
 
     fun startExitAnimation(centerX: Int, centerY: Int, onComplete: () -> Unit) {
         view?.let {
-            val startRadius = Math.hypot(it.width.toDouble(), it.height.toDouble()) / 2
+            val startRadius = Math.hypot(it.width.toDouble(), it.height.toDouble()) / 1.5f
             val endRadius = arguments?.getFloat(ARG_INITIAL_RADIUS) ?: 0.0f
             val circularAnimation = ViewAnimationUtils.createCircularReveal(
                 it,
@@ -159,8 +159,8 @@ class CircularDialogFragment : AppCompatDialogFragment() {
     companion object {
         const val ARG_ANIMATION_START_POINT = "ARG_ANIMATION_START_POINT"
         const val ARG_INITIAL_RADIUS = "ARG_INITIAL_RADIUS"
-        const val CIRCULAR_ANIMATION_DURATION = 400L
-        const val TEXT_ANIMATION_DURATION = 200L
+        const val CIRCULAR_ANIMATION_DURATION = 600L
+        const val TEXT_ANIMATION_DURATION = 300L
 
         fun newInstance(point: Point, initialRadius: Float): CircularDialogFragment {
             return CircularDialogFragment().apply {
