@@ -4,6 +4,7 @@ import android.graphics.Point
 import android.graphics.Rect
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.graphics.toRectF
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -13,11 +14,14 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         btn_fragment_circular.setOnClickListener {
-            showFragment()
+            showCircularFragment()
+        }
+        btn_fragment_elliptical.setOnClickListener {
+            showEllipticalFragment()
         }
     }
 
-    fun showFragment() {
+    fun showCircularFragment() {
         val coords = IntArray(2)
         btn_fragment_circular.getLocationInWindow(coords)
         val x = coords[0] + btn_fragment_circular.width / 2
@@ -26,6 +30,14 @@ class MainActivity : AppCompatActivity() {
             Point(x, y),
             Math.max(btn_fragment_circular.width / 2, btn_fragment_circular.height / 2).toFloat()
         )
+        fragment.show(supportFragmentManager, "TAG")
+    }
+
+    fun showEllipticalFragment() {
+        val rect = Rect()
+        btn_fragment_elliptical.getGlobalVisibleRect(rect)
+
+        val fragment = EllipticalDialogFragment.newInstance(rect.toRectF())
         fragment.show(supportFragmentManager, "TAG")
     }
 
